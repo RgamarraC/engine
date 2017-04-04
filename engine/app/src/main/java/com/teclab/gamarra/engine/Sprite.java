@@ -6,7 +6,7 @@ import android.graphics.Rect;
 
  
 
-public class Sprite extends DisplayObject{
+public class Sprite extends DisplayContainer{
 
        // direction = 0 up, 1 left, 2 down, 3 right,
 
@@ -18,6 +18,7 @@ public class Sprite extends DisplayObject{
        private static final int BMP_COLUMNS = 3;
        private static final int MAX_SPEED = 5;
        private Bitmap bmp;
+
        public int xSpeed;
        public int ySpeed;
        private int currentFrame = 0;
@@ -29,6 +30,7 @@ public class Sprite extends DisplayObject{
        public Sprite(String id, Resources resources) {
            super(resources);
            bmp = this.resources.getBmp(id);
+
            this.width = bmp.getWidth() / BMP_COLUMNS;
            this.height = bmp.getHeight() / BMP_ROWS;
        }
@@ -36,10 +38,7 @@ public class Sprite extends DisplayObject{
  
         @Override
        public void update() {
-
-
              currentFrame = ++currentFrame % BMP_COLUMNS;
-
        }
 
  

@@ -27,7 +27,8 @@ public class Resources {
     }
 
     public Bitmap removeBmp(String resource){
-        return this.pool.remove(resource);
+         return this.pool.remove(resource);
+
     }
 
 }

@@ -1,5 +1,7 @@
 package com.teclab.gamarra.engine;
 
+import android.graphics.BitmapFactory;
+
 /**
  * Created by Heat on 01/11/2016.
  */
@@ -14,10 +16,14 @@ public class MainScene extends DisplayContainer{
             bad.x = (int)(Math.random()*500.0f);
             addChild(bad);
         }
+
+
     }
+
 
     @Override
     public void update() {
+
 
     }
 

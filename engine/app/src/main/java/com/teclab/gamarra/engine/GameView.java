@@ -29,8 +29,6 @@ public class GameView extends SurfaceView {
 
         getHolder().addCallback(new SurfaceHolder.Callback() {
 
-
-
             public void surfaceDestroyed(SurfaceHolder holder) {
 
                    boolean retry = true;
@@ -51,20 +49,11 @@ public class GameView extends SurfaceView {
 
             }
 
-
-
-
-
             public void surfaceCreated(SurfaceHolder holder) {
 
                    gameLoopThread.setRunning(true);
                    gameLoopThread.start();
-
             }
-
-
-
-
 
             public void surfaceChanged(SurfaceHolder holder, int format,
 

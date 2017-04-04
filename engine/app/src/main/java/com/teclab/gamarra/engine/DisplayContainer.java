@@ -16,6 +16,7 @@ public class DisplayContainer extends DisplayObject{
     public DisplayContainer(Resources resources){
         super(resources);
         children = new ArrayList();
+
     }
 
     @Override
@@ -29,6 +30,7 @@ public class DisplayContainer extends DisplayObject{
         child.parent = this;
         children.add(child);
     }
+
 
     public void onTouchEvent(MotionEvent event) {
         for (DisplayObject child:children){
