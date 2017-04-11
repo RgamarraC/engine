@@ -2,6 +2,7 @@ package com.teclab.gamarra.engine;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.PointF;
 
 import java.util.HashMap;
 
@@ -10,13 +11,31 @@ import java.util.HashMap;
  */
 public class Resources {
 
-    private GameView view;
-    private HashMap<String,Bitmap> pool;
 
-    public Resources(GameView view){
-        this.view = view;
-        pool  = new HashMap<String, Bitmap>();
+
+    private HashMap texturePool;
+    public  SoundManager sounds;
+    public Context mContext;
+    private int fps;
+    public Canvas canvas;
+    public PointF aspect;
+    private String hashKey;
+
+
+    public Resources(Context _context){
+        fps = 32;
+        hashKey ="";
+        mContext = _context;
+        texturePool = new HashMap();
+        sounds = new SoundManager(_context);
     }
+public void loadTexture(String key,int resource){
+    if (!texturePool.containsKey(key)){
+        Bitmap bmp = null;
+        bmp = BitmapFactory.decodeResource(mContext.getResoursces(),resource);
+        texturePool.put(key,bmp);
+    }
+}
 
     public Bitmap getBmp(String resource){
         if(!this.pool.containsKey(resource)){

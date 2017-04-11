@@ -28,8 +28,7 @@ public abstract class DisplayObject extends EventDispatcher {
         this.resources = resources;
     }
 
-    public abstract void onDraw(){
-    }
+   // public abstract void onDraw(){    }
 
     public void update(){
     }
