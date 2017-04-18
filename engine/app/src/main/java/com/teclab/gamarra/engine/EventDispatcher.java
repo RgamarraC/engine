@@ -3,24 +3,19 @@ package com.teclab.gamarra.engine;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * Created by Alumno on 04/04/2017.
+ * Created by Heat on 04/04/2017.
  */
-
-
-
-
-
 
 public class EventDispatcher {
 
     private List listeners;
 
     public EventDispatcher(){
-        listeners = new Arraylist();
+        listeners = new ArrayList();
     }
     public void addEventListener(String type)
     {
-        listerner.add(type);
+        listeners.add(type);
     }
     public void dispatchEvent(Event e)
 {
@@ -28,7 +23,7 @@ public class EventDispatcher {
         e.target = this;
     for (int i=0;i<listeners.size();i++)
         if(((String)listeners.get(i)).equals(e.type))
-            recieveEvent(e);
+            reciveEvent(e);
 }
     public void dispatchEvent(String type){
 
@@ -37,7 +32,7 @@ public class EventDispatcher {
             e.target = this;
         for (int i=0;i<listeners.size();i++)
             if(((String)listeners.get(i)).equals(e.type))
-                recieveEvent(e);
+                reciveEvent(e);
     }
     public void removeEventListener(String type){
         listeners.remove(type);

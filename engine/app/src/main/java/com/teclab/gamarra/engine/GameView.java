@@ -23,7 +23,7 @@ public class GameView extends SurfaceView {
     public GameView(Context context) {
 
         super(context);
-        resources = new Resources(this);
+        resources = new Resources(context);
         myScene = new MainScene(this.resources);
         gameLoopThread = new GameLoopThread(this);
 
