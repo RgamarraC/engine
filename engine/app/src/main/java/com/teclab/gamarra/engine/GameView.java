@@ -71,8 +71,9 @@ public class GameView extends SurfaceView {
 
     protected void onDraw(Canvas canvas) {
 
+        resources.canvas = canvas;
         canvas.drawColor(Color.BLACK);
-        myScene.onDraw(canvas);
+        myScene.onDraw();
     }
 
 
@@ -90,7 +91,7 @@ public class GameView extends SurfaceView {
                 float y = event.getY();
 
                 synchronized (getHolder()) {
-                    myScene.onTouchEvent(event);
+                    //myScene.onTouchEvent(event);
                 }
 
          }

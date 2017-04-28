@@ -20,7 +20,7 @@ public abstract class DisplayObject extends EventDispatcher {
     public int pivotX,pivotY;
     public int x,y;
     public DisplayObject parent;
-    public Resources resources;
+
 
     public boolean visible;
     //Transformation  transformation;
@@ -35,10 +35,6 @@ public abstract class DisplayObject extends EventDispatcher {
         parent=null;
         //transformation= new Transformation(this);
 
-    }
-
-    public DisplayObject(Resources resources){
-        this.resources = resources;
     }
 
 
