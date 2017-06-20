@@ -11,7 +11,7 @@ import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 
 
-public class Image extends DisplayObject {
+public class    Image extends DisplayObject {
 String key;
 Resources resources;
 Bitmap a;

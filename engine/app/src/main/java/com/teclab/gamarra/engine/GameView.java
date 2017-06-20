@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -82,21 +83,31 @@ public class GameView extends SurfaceView {
 
     public boolean onTouchEvent(MotionEvent event) {
 
-         if (System.currentTimeMillis() - lastClick > 300) {
+        if (System.currentTimeMillis() - lastClick > 300) {
 
-                lastClick = System.currentTimeMillis();
+            lastClick = System.currentTimeMillis();
+            Point EV=new Point();
 
-                float x = event.getX();
+            EV.x=(int) event.getX();
+            EV.y =(int) event.getY();
 
-                float y = event.getY();
 
-                synchronized (getHolder()) {
-                    //myScene.onTouchEvent(event);
-                }
+            switch (event.getAction()) {
+                case  MotionEvent.ACTION_DOWN :
+                    myScene.touchDown(EV,0);
+                case  MotionEvent.ACTION_UP :
+                    myScene.touchDown(EV,0);
+                case  MotionEvent.ACTION_MOVE :
+                    myScene.touchDown(EV,0);
 
-         }
+            }
+            synchronized (getHolder()) {
+                //myScene.onTouchEvent(event);
+            }
 
-         return true;
+        }
+
+        return true;
 
     }
 
