@@ -33,25 +33,17 @@ public class GameView extends SurfaceView {
             public void surfaceDestroyed(SurfaceHolder holder) {
 
                    boolean retry = true;
-
                    gameLoopThread.setRunning(false);
-
                    while (retry) {
-
                           try {
-
                                 gameLoopThread.join();
-
                                 retry = false;
-
                           } catch (InterruptedException e) {}
-
                    }
 
             }
 
             public void surfaceCreated(SurfaceHolder holder) {
-
                    gameLoopThread.setRunning(true);
                    gameLoopThread.start();
             }
