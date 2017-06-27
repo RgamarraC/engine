@@ -20,6 +20,7 @@ public class DisplayContainer extends DisplayObject {
     public DisplayContainer() {
         children = new ArrayList();
         numChildren = 0;
+
     }
 
     @Override

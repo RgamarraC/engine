@@ -2,8 +2,7 @@ package com.teclab.gamarra.engine;
 
 import android.graphics.Point;
 import android.graphics.PointF;
-
-import org.ejml.simple.SimpleMatrix;
+import Jama.Matrix;
 
 
 /**
@@ -12,20 +11,55 @@ import org.ejml.simple.SimpleMatrix;
 
 public class Transformation extends java.lang.Object {
 
-   private DisplayObject _displayobjet;
+    private DisplayObject _displayobjet;
+    private Matrix TrasnfomM;
+    private int acumulatedScale;
+    private int acumulatedRotation;
+
 
     public Transformation(DisplayObject _invoker)
     {
-        _displayobjet=_invoker;
+        _displayobjet = _invoker;
     }
-   public void CreateMTrasnformations()
+    public void setIdentity()
     {
-        SimpleMatrix Traslate = new SimpleMatrix (new double[][] {{ 1,0, _displayobjet.x},{  0, 1, _displayobjet.y},  {0,  0, 1}});
-        SimpleMatrix Rotate=new SimpleMatrix(new double[][]{{Math.cos(_displayobjet.rotation),-Math.sin(_displayobjet.rotation)},{Math.sin(_displayobjet.rotation),Math.cos(_displayobjet.rotation)}});
-        SimpleMatrix Scale=new SimpleMatrix(new double[][] {{_displayobjet.scaleX,0 },{0,_displayobjet.y }});
+    this.TrasnfomM =  Matrix.identity(3,3);
     }
-    public PointF getAcumulatedScale(int x, int y){
+    public void CreateMTrasnformations()
+    {
+        double [][] TrasnfomMaux={{1,0,0},{0,1,0},{0,0,1}};
+        Matrix MTraslate = new Matrix (new double[][] {{ 1,0, _displayobjet.x},{  0, 1, _displayobjet.y},  {0,  0, 1}});
+        Matrix MRotate   = new Matrix (new double[][]{{Math.cos(_displayobjet.rotation),-Math.sin(_displayobjet.rotation)},{Math.sin(_displayobjet.rotation),Math.cos(_displayobjet.rotation)}});
+        Matrix MScale    = new Matrix (new double[][] {{_displayobjet.scaleX,0 },{0,_displayobjet.y }});
+        //Matrix Resultante= new Matrix
+    }
+    public void product(){
+        CreateMTrasnformations();
+        if(this._displayobjet.parent != null){
 
-        return   
+
+        }
     }
+    public PointF getAcumulatedScale(){
+        PointF Paux=new PointF(_displayobjet.scaleX,_displayobjet.scaleY);
+        Paux.x *=_displayobjet.parent.scaleX;
+        Paux.y *=_displayobjet.parent.scaleY;
+        return  Paux;
+    }
+    public void setAcumulatedScale(PointF acumulatedScale ){
+       _displayobjet.scaleX= acumulatedScale.x;
+        _displayobjet.scaleY=acumulatedScale.y;
+
+    }
+    public int getAcumulatedRotation(){
+        int aux= _displayobjet.rotation;
+        aux +=_displayobjet.parent.rotation;
+        if(aux>=360)
+            aux-=360;
+        return  aux;
+    }
+    public void setAcumulatedRotation(int acumulatedRotation){
+    _displayobjet.rotation=acumulatedRotation;
+    }
+
 }

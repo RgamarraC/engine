@@ -27,4 +27,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.1'
     testCompile 'junit:junit:4.12'
     compile files('lib/ejml-simple-0.31.jar')
+    compile files('lib/Jama-1.0.3.jar')
 }
