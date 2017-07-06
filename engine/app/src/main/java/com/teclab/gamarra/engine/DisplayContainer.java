@@ -26,7 +26,7 @@ public class DisplayContainer extends DisplayObject {
     @Override
     public void onDraw() {
         for (int i = 0; i < numChildren; i++)
-            ((DisplayObject) children.get(i)).onDraw();
+            ((DisplayObject) children.get(i)).primaryOperations();
     }
 
     public int addChild(DisplayObject child) {

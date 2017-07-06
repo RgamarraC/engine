@@ -10,25 +10,15 @@ public class GameLoopThread extends Thread {
     private GameView view;
     private boolean running = false;
 
-
-      
-
     public GameLoopThread(GameView view) {
 
          this.view = view;
-
     }
-
- 
 
     public void setRunning(boolean run) {
 
          running = run;
-
     }
-
-
-
     @Override
 
     public void run() {
@@ -52,7 +42,6 @@ public class GameLoopThread extends Thread {
                        synchronized (view.getHolder()) {
 
                               view.onDraw(c);
-
                        }
 
                 } finally {
@@ -60,7 +49,6 @@ public class GameLoopThread extends Thread {
                        if (c != null) {
 
                               view.getHolder().unlockCanvasAndPost(c);
-
                        }
 
                 }
@@ -72,11 +60,9 @@ public class GameLoopThread extends Thread {
                        if (sleepTime > 0)
 
                               sleep(sleepTime);
-
                        else
 
                               sleep(10);
-
                 } catch (Exception e) {}
 
          }

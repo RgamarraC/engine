@@ -66,7 +66,7 @@ public class GameView extends SurfaceView {
 
         resources.canvas = canvas;
         canvas.drawColor(Color.BLACK);
-        myScene.onDraw();
+        myScene.primaryOperations();
     }
 
 

@@ -4,7 +4,7 @@ package com.teclab.gamarra.engine;
  * Created by Alumno on 27/06/2017.
  */
 
-public class Frame extends java.lang.Object {
+public class Frame {
     int	offsetX;//Medida extra que se le debe agregar a width para tener la medida real del ancho del frame.
     int	offsetY;//Medida extra que se le debe agregar a height para tener la medida real del ancho del frame.
     int	height;//alto del frame

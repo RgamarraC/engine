@@ -32,7 +32,7 @@ public class Transformation extends java.lang.Object {
     public void CreateMTrasnformations() {
         Matrix TrasnfomMaux = new Matrix(new double[][]{{Math.cos(Math.toRadians(_displayobjet.rotation)), -Math.sin(Math.toRadians(_displayobjet.rotation)), _displayobjet.x}, {Math.sin(Math.toRadians(_displayobjet.rotation)), Math.cos(Math.toRadians(_displayobjet.rotation)), _displayobjet.y}, {0, 0, 1}});
         this.TrasnformM = TrasnfomMaux;
-        this.acumulatedScale = new PointF(this._displayobjet.scaleX, _displayobjet.scaleY);
+        this.acumulatedScale = new PointF(this._displayobjet.scaleX, this._displayobjet.scaleY);
         this.acumulatedRotation = this._displayobjet.rotation;
         this.acmulatedOpacidad = this._displayobjet.opacity;
 

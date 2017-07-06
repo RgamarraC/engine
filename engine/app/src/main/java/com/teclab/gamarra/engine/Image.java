@@ -17,13 +17,14 @@ public class    Image extends DisplayObject {
      Resources resources;
      Bitmap a;
     Frame frame;
-  public Image(String _key, String _tag,int source, Resources _resources) {
+  public Image(String _key, int source, Resources _resources) {
       this.resources=_resources;
       this.key =_key;
       _resources.loadTexture(_key,source);
       a = resources.getTexture(key);
       this.width=a.getWidth();
       this.height=a.getHeight();
+      this.setFrame();
       }
     public void setFrame()
     {
@@ -40,25 +41,26 @@ public class    Image extends DisplayObject {
         matrix.preScale(myScale.x ,myScale.y);
         int px;
         boolean Invert = false;
-        if(myScale.x<0){
+        if(myScale.x>0){
             px = ((int)(width/2 - this.frame.width + this.frame.offsetX * myScale.x));
         Invert =true  ;}
-            else {px = ((int)(width/2 + this.frame.offsetX * myScale.x));
-                }
+        else {
+            px = ((int)(width/2 + this.frame.offsetX * myScale.x));
+        }
         int py;
-        if(myScale.y<0){
-            px = ((int)(width/2 - this.frame.height + this.frame.offsetY * myScale.y));
+        if(myScale.y>0){
+            py = ((int)(height/2 - this.frame.height + this.frame.offsetY * myScale.y));
             Invert =true;
                 }
-                else {
-            px = ((int)(width/2 + this.frame.offsetX * myScale.y));
-                }
+        else {
+            py = ((int)(height/2 + this.frame.offsetY * myScale.y));
+        }
         Rect src;
         Rect dst;
         if(!Invert)
         {
             src = new Rect(this.frame.x, this.frame.y, this.frame.x + this.frame.width, this.frame.y + this.frame.height);
-            dst = new Rect(pos.x - px, pos.y - py, (int)(pos.x - px + this.frame.width * myScale.x), (int)(pos.y - despY + this.frame.height * myScale.y));
+            dst = new Rect(pos.x - px, pos.y - py, (int)(pos.x - px + this.frame.width * myScale.x), (int)(pos.y - py + this.frame.height * myScale.y));
        if (myRotation !=0)
        {
            this.resources.canvas.save();

@@ -33,7 +33,7 @@ public class Resources {
         hashKey = "";
         mContext = _context;
         texturePool = new HashMap();
-        sounds = new SoundManager(_context);
+        //sounds = new SoundManager(_context);
     }
 
     public void loadTexture(String key, int source)

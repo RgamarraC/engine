@@ -37,7 +37,9 @@ public abstract class DisplayObject extends EventDispatcher {
     public void update(){
     }
     public  void primaryOperations(){
-
+        this.update();
+        this.transformation.product();
+        this.onDraw();
     }
     public Point localToGlobal(Point p){
         return transformation.localToGlobal(p.x,p.y);
