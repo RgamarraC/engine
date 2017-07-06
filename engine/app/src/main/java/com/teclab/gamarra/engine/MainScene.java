@@ -10,17 +10,14 @@ public class MainScene extends DisplayContainer{
 
     Resources res;
     Image img;
+    Image img2;
+
     public MainScene(Resources res){
         super();
         this.res = res;
         img = new Image("bad","bad",R.drawable.bad1,res);
         img.scaleX=-2;img.x = 0;
-
-
-
         this.addChild(img);
-
-
     }
 
 

@@ -11,13 +11,13 @@ public class Frame extends java.lang.Object {
     int	width;//ancho del frame
     int	x;
     int	y;
-    Frame(int _x, int _y, int _width, int _height){
+     public  Frame(int _x, int _y, int _width, int _height){
         x=_x;
         y=_y;
         width=_width;
         height=_height;
     }
-    Frame(int _x, int _y, int _width, int _height, int _offsetX, int _offsetY){
+     public Frame(int _x, int _y, int _width, int _height, int _offsetX, int _offsetY){
         x=_x;
         y=_y;
         width=_width;
